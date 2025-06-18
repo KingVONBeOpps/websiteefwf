@@ -27,7 +27,7 @@
       top: -100%;
       opacity: 0;
       transition: top 1s ease, opacity 1s ease;
-      max-width: 800px;
+      max-width: 90vw;
       margin-top: 80px;
       z-index: 2;
     }
@@ -41,9 +41,9 @@
       background: #fffdf7;
       border: 3px dashed #ff9ecb;
       border-radius: 20px;
-      padding: 40px;
+      padding: 30px;
       box-shadow: 5px 10px 20px rgba(255, 105, 180, 0.3);
-      font-size: 1.7rem;
+      font-size: 1.3rem;
       line-height: 1.6;
       text-align: center;
       position: relative;
@@ -52,31 +52,13 @@
     .hidden-message {
       margin-top: 20px;
       opacity: 0;
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       color: #b3005f;
-      transition: opacity 1.5s ease;
-      text-align: center;
-      text-shadow: 0 0 8px #ffb6d9, 0 0 12px #ffa6c9;
-      animation: pulseGlow 3s infinite;
+      transition: opacity 1s ease;
     }
 
     .hidden-message.show {
       opacity: 1;
-    }
-
-    @keyframes pulseGlow {
-      0% {
-        text-shadow: 0 0 6px #ffb6d9, 0 0 10px #ffa6c9;
-        transform: scale(1);
-      }
-      50% {
-        text-shadow: 0 0 14px #ff6fb7, 0 0 20px #ff89c4;
-        transform: scale(1.03);
-      }
-      100% {
-        text-shadow: 0 0 6px #ffb6d9, 0 0 10px #ffa6c9;
-        transform: scale(1);
-      }
     }
 
     .cursor {
@@ -140,16 +122,34 @@
 
     .click-note {
       position: absolute;
-      top: 40px;
-      font-size: 1.4rem;
+      top: 30px;
+      font-size: 1.2rem;
       text-align: center;
       color: #b3005f;
       animation: bounce 1.2s infinite alternate;
+      padding: 0 10px;
+      text-align: center;
+      width: 100%;
     }
 
     @keyframes bounce {
       0% { transform: translateY(0); }
       100% { transform: translateY(10px); }
+    }
+
+    @media (max-width: 480px) {
+      .message-box {
+        font-size: 1.1rem;
+        padding: 20px;
+      }
+
+      .hidden-message {
+        font-size: 1rem;
+      }
+
+      .click-note {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -157,10 +157,8 @@
   <div class="click-note">📩 Click anywhere to drop the note</div>
 
   <div class="note-container" id="note">
-    <div class="message-box">
-      <div id="messageBox"></div>
-      <div class="hidden-message" id="hiddenMsg">this is made for crisha and crisha only DNI who isnt her ✌️✌️</div>
-    </div>
+    <div class="message-box" id="messageBox"></div>
+    <div class="hidden-message" id="hiddenMsg">this is made for crisha and crisha only DNI who isnt her ✌️✌️</div>
   </div>
 
   <audio id="bg-music" loop hidden autoplay>
